@@ -101,7 +101,7 @@ app.post("/upload", upload.single("image"), async (req, res) => {
   try {
     Tesseract.recognize(imagePath, "eng")
       .then(async (text) => {
-        console.log("Result:", text);
+        // console.log("Result:", text);
 
         // Initialize an object to store extracted fields
         const extractedData = {

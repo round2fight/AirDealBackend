@@ -114,13 +114,21 @@ app.post("/upload", upload.single("image"), async (req, res) => {
         };
 
         // Regex patterns for extracting information
-        const namePattern = /Name:\s*(.*)/i;
-        const jobTitlePattern = /Title:\s*(.*)/i;
-        const companyNamePattern = /Company:\s*(.*)/i;
+        // const namePattern = /Name:\s*(.*)/i;
+        // const jobTitlePattern = /Title:\s*(.*)/i;
+        // const companyNamePattern = /Company:\s*(.*)/i;
+        // const emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+        // const phonePattern =
+        //   /(?:\+?(\d{1,3}))?[-.\s]?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})/;
+        // const addressPattern = /ADDRESS\s*:\s*([\s\S]*?)(?=\n\S)/i;
+
+        const namePattern = /Name\s*:\s*(.*?)(?=\n)/i;
+        const jobTitlePattern = /Title\s*:\s*(.*?)(?=\n)/i;
+        const companyNamePattern = /Company\s*:\s*(.*?)(?=\n)/i;
         const emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
         const phonePattern =
           /(?:\+?(\d{1,3}))?[-.\s]?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})/;
-        const addressPattern = /Address:\s*(.*)/i;
+        const addressPattern = /ADDRESS\s*:\s*([\s\S]*?)(?=\n\S)/i;
 
         // Extracting data using regex patterns
         const nameMatch = text["data"]["text"].match(namePattern);
